@@ -1,0 +1,45 @@
+{
+  "version": "2.0",
+  "envId": "{{env.ENV_ID}}",
+  "framework": {
+    "name": "Lychee",
+    "plugins": {
+      "client": {
+        "use": "@cloudbase/framework-plugin-container",
+        "inputs": {
+          "serviceName": "lychee",
+          "servicePath": "/",
+          "uploadType": "image",
+          "imageInfo": {
+            "imageUrl": "lycheeorg/lychee:v4.3.0"
+          },
+          "containerPort": 80,
+          "customLogs": "stdout,/dev/stdout,/dev/stderr",
+          "envVariables": {
+            "PUID": "1000",
+            "PGID": "1000",
+            "DB_CONNECTION": "sqlite"
+          },
+          "initialDelaySeconds": 8,
+          "volumeMounts": {
+            "/conf": "lychee-cfs-conf",
+            "/sym": "lychee-cfs-sym",
+            "/uploads": "lychee-cfs-upload"
+          }
+        }
+      }
+    },
+    "requirement": {
+      "addons": [{
+        "type": "CFS",
+        "name": "lychee-cfs-conf"
+      }, {
+        "type": "CFS",
+        "name": "lychee-cfs-sym"
+      }, {
+        "type": "CFS",
+        "name": "lychee-cfs-upload"
+      }]
+    }
+  }
+}

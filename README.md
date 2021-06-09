@@ -27,7 +27,7 @@ Lychee是一个开源的照片管理系统，能方便管理和共享照片。
     > lychee-cfs-conf:lychee数据库文件
 
     > lychee-cfs-sym:lychee系统文件
-                                                          >
+                                                           >
     > lychee-cfs-upload:lychee上传目录文件
 
 ## 注意事项
